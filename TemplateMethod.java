@@ -6,7 +6,6 @@ public abstract class Template {
   public final void templateMethod() {
     operator1();
     operator2();
-    operator3();
     hook();
   }
 
