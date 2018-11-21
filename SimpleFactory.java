@@ -1,6 +1,7 @@
 /**
  * Creator
  */
+// One Creator can only create one Product, but Product can be any type.
 public abstract class Creator {
   public static Product factoryMethod(String type) {
     switch(type) {
@@ -26,21 +27,21 @@ public interface Product {
 /**
  * ConcreteProduct
  */
-public class ConcreteProduct1 extends Product {
+public class ConcreteProduct1 implements Product {
   @Override
   public void doSomething() {
     System.out.println("ConcreteProduct1 doSomething");
   }
 }
 
-public class ConcreteProduct2 extends Product {
+public class ConcreteProduct2 implements Product {
   @Override
   public void doSomething() {
     System.out.println("ConcreteProduct2 doSomething");
   }
 }
 
-// public class ConcreteProduct3 extends Product {
+// public class ConcreteProduct3 implements Product {
 //   @Override
 //   public void doSomething() {
 //     System.out.println("ConcreteProduct3 doSomething");
@@ -56,10 +57,10 @@ public class ConcreteProduct2 extends Product {
  */
 public class Client {
   public static void main(String[] args) {
-    Creator c = Creator();
+    Creator creator = Creator();
 
-    Product p1 = c.factoryMethod("product1");
-    Product p2 = c.factoryMethod("product2");
-    // Product p3 = c.factoryMethod("product3");
+    Product product1 = creator.factoryMethod("product1");
+    Product product2 = creator.factoryMethod("product2");
+    // Product product3 = creator.factoryMethod("product3");
   }
 }

@@ -11,15 +11,15 @@ public abstract class Template {
   }
 
   /* primitive method */
-  public abstract void operator1();
+  public abstract void operator1(); // This abstract method can use the factory method pattern.
 
   public void operator2() {
-    System.out.println("Template: operator2");
+    System.out.println("Template: operator2"); // do default primitive implementation
   };
 
   /* hook method */
   public void hook() {
-    // do nothing
+    // do nothing or do default hook implementation
   }
 }
 

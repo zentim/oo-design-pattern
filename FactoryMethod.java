@@ -1,8 +1,15 @@
 /**
  * Creator
  */
+// One Creator can only create one Product, but we can have different type creator..
 public abstract class Creator {
-  public abstract Product factoryMethod();
+  // /* template method */
+  // public final void templateMethod() {
+  //   Product p = factoryMethod(); // Factory method is often called from a template method.
+  // }
+
+  // /* primitive method */
+  public abstract Product factoryMethod(); // In the template pattern, factoryMethod is primitive method.
 }
 
 /**
@@ -29,6 +36,7 @@ public class ConcreteCreator2 extends Creator {
 //   }
 // }
 
+
 /**
  * Product
  */
@@ -39,21 +47,21 @@ public interface Product {
 /**
  * ConcreteProduct
  */
-public class ConcreteProduct1 extends Product {
+public class ConcreteProduct1 implements Product {
   @Override
   public void doSomething() {
     System.out.println("ConcreteProduct1 doSomething");
   }
 }
 
-public class ConcreteProduct2 extends Product {
+public class ConcreteProduct2 implements Product {
   @Override
   public void doSomething() {
     System.out.println("ConcreteProduct2 doSomething");
   }
 }
 
-// public class ConcreteProduct3 extends Product {
+// public class ConcreteProduct3 implements Product {
 //   @Override
 //   public void doSomething() {
 //     System.out.println("ConcreteProduct3 doSomething");
@@ -69,12 +77,18 @@ public class ConcreteProduct2 extends Product {
  */
 public class Client {
   public static void main(String[] args) {
-    Creator c1 = ConcreteCreator1();
-    Creator c2 = ConcreteCreator2();
-    // Creator c3 = ConcreteCreator3();
+    private Creator creator;
 
-    Product p1 = c1.factoryMethod();
-    Product p2 = c2.factoryMethod();
-    // Product p3 = c3.factoryMethod();
+    // Creator1
+    creator = ConcreteCreator1();
+    private Product product1 = creator.factoryMethod();
+
+    // Creator2
+    creator = ConcreteCreator2();
+    private Product product2 = creator.factoryMethod();
+
+    // // Creator3
+    // creator = ConcreteCreator3();
+    // private Product product3 = creator.factoryMethod();
   }
 }
