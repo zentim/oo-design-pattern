@@ -31,16 +31,8 @@ public class Prototype implements Cloneable {
   public abstract void doSomething();
 
   @Override
-  public Object clone() {
-    Object clone = null;
-
-    try {
-      clone = super.clone();
-    } catch (CloneNotSupportedException) {
-      e.printStackTrace();
-    }
-
-    return clone;
+  public Object clone() throws CloneNotSupportedException {
+    return super.clone();
   }
 
   /* Getter and Setter */
