@@ -2,8 +2,8 @@
  * Creator
  */
 // One Creator can only create one Product, but Product can be any type.
-public abstract class Creator {
-  public static Product factoryMethod(String type) {
+public class Creator {
+  public Product factoryMethod(String type) {
     switch(type) {
       case "product1":
         return new ConcreteProduct1();
