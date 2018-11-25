@@ -10,11 +10,11 @@ public abstract class Template {
   }
 
   /* primitive method */
-  public abstract void operator1(); // This abstract method can use the factory method pattern.
+  public void primitive1() {
+      System.out.println("Template: primitive1"); // do default primitive implementation
+  }
 
-  public void operator2() {
-    System.out.println("Template: operator2"); // do default primitive implementation
-  };
+  public abstract void primitive2(); // This abstract method can use the factory method pattern.
 
   /* hook method */
   public void hook() {
@@ -27,8 +27,8 @@ public abstract class Template {
  */
 public class ConcreteTemplate extends Template {
   @Override
-  public void operator1() {
-    System.out.println("ConcreteTemplate: operator1");
+  public void primitive2() {
+    System.out.println("ConcreteTemplate: primitive2");
   }
 
   @Override
